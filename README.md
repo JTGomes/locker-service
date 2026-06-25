@@ -193,6 +193,13 @@ curl 'http://localhost:8080/api/v1/locker?limit=20&offset=0'
 }
 ```
 
+**Available filters for listing:**
+- `bloq_id` - Filter by bloq
+- `status` - Filter by status (open/closed)
+- `is_occupied` - Filter by occupancy (true/false)
+- `limit` - Items per page (default: 10)
+- `offset` - Pagination offset (default: 0)
+
 #### Create a rent
 
 ```bash
@@ -239,68 +246,6 @@ curl -X POST http://localhost:8080/api/v1/rent/d2e3f4a5-6789-0abc-def1-234567890
 }
 ```
 
-
-### Lockers
-- `POST /api/v1/locker` - Create a new locker
-- `GET /api/v1/locker` - List lockers (with filters and pagination)
-- `GET /api/v1/locker/:id` - Get specific locker
-- `DELETE /api/v1/locker/:id` - Delete locker
-
-
-
-**Available filters for listing:**
-- `bloq_id` - Filter by bloq
-- `status` - Filter by status (open/closed)
-- `is_occupied` - Filter by occupancy (true/false)
-- `limit` - Items per page (default: 10)
-- `offset` - Pagination offset (default: 0)
-
-### Rents
-- `POST /api/v1/rent` - Create a new rent
-- `GET /api/v1/rent/:id` - Get specific rent
-- `POST /api/v1/rent/:id/allocate` - Allocate locker to rent
-- `POST /api/v1/rent/:id/dropoff` - Register dropoff
-- `POST /api/v1/rent/:id/pickup` - Register pickup
-
-**Request example (Create Rent):**
-```bash
-curl -X POST http://localhost:8080/api/v1/rent \
-  -H "Content-Type: application/json" \
-  -d '{
-    "weight": 2.5,
-    "size": "M"
-  }'
-```
-
-**Response example (201 Created):**
-```json
-{
-  "id": "d2e3f4a5-6789-0abc-def1-234567890abc",
-  "locker_id": null,
-  "weight": 2.5,
-  "size": "M",
-  "status": "created",
-  "created_at": "2026-06-25T12:00:00Z",
-  "updated_at": "2026-06-25T12:00:00Z",
-  "dropped_off_at": null,
-  "picked_up_at": null
-}
-```
-
-**Response example (200 OK after allocation):**
-```json
-{
-  "id": "d2e3f4a5-6789-0abc-def1-234567890abc",
-  "locker_id": "c1d2e3f4-5678-90ab-cdef-1234567890ab",
-  "weight": 2.5,
-  "size": "M",
-  "status": "waiting_dropoff",
-  "created_at": "2026-06-25T12:00:00Z",
-  "updated_at": "2026-06-25T12:05:00Z",
-  "dropped_off_at": null,
-  "picked_up_at": null
-}
-```
 
 ## Development
 
