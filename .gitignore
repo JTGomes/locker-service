@@ -1,0 +1,50 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.tmp
+*.temp
+
+# Go build artifacts
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+*.prof
+*.coverprofile
+coverage.out
+
+# Go test and debug artifacts
+**/__debug_bin*
+
+# Go tool directories
+*.log
+pkg/
+
+# Environment files
+.env
+.env.local
+
+pgdata/
+
+# System files
+*.pid
+*.seed
+
+# Temporary files
+tmp/
+_build/
+
+# Ignore generated files from editors and tools
+*.bak
+*.orig

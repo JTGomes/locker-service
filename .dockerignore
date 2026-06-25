@@ -1,0 +1,47 @@
+# Git
+.git
+.gitignore
+
+# Environment files
+.env
+.env.*
+
+# Build outputs
+bin/
+dist/
+build/
+out/
+
+# Go artifacts
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Go modules cache (local dev only)
+pkg/
+vendor/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Docker
+Dockerfile
+docker-compose.yml
+
+# Testing / coverage
+coverage.out
+
+# Temporary files
+tmp/
+
+pgdata/
